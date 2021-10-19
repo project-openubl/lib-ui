@@ -5,5 +5,5 @@ export default create({
   brandTitle: '@project-openubl/lib-ui',
   brandUrl: 'https://github.com/project-openubl/lib-ui',
   brandImage:
-    'https://raw.githubusercontent.com/project-openubl/lib-ui/main/.storybook/img/project-openubl.svg',
+    'https://raw.githubusercontent.com/project-openubl/lib-ui/master/.storybook/img/project-openubl.svg',
 });

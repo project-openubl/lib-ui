@@ -6,7 +6,7 @@ interface IGithubLinkProps {
 }
 
 const GithubLink: React.FunctionComponent<IGithubLinkProps> = ({ path }) => (
-  <a href={`https://github.com/project-openubl/lib-ui/blob/main/${path}`}>
+  <a href={`https://github.com/project-openubl/lib-ui/blob/master/${path}`}>
     <GithubIcon /> View Source on GitHub
   </a>
 );
