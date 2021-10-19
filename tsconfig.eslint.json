@@ -1,0 +1,10 @@
+{
+  "compilerOptions": { "strict": true, "allowJs": true },
+  "include": [
+    "jest.config.js",
+    "jest.setup.ts",
+    "rollup.config.js",
+    "src/**/*.stories.tsx",
+    "src/**/*.test.tsx"
+  ]
+}

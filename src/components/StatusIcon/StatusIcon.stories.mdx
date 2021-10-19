@@ -1,0 +1,72 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { StatusIcon } from './StatusIcon';
+import GithubLink from '../../../.storybook/helpers/GithubLink';
+
+<Meta title="Components/StatusIcon" component={StatusIcon} />
+
+# StatusIcon
+
+A small wrapper for PatternFly's CheckCircleIcon,
+WarningTriangleIcon and ExclamationCircleIcon that automatically sets the right color.
+
+## Examples
+
+### Basic
+
+<Canvas>
+  <Story name="Basic">
+    <StatusIcon status="Ok" />
+    <br />
+    <StatusIcon status="Warning" />
+    <br />
+    <StatusIcon status="Error" />
+    <br />
+    <StatusIcon status="Info" />
+    <br />
+    <StatusIcon status="Loading" />
+    <br />
+    <StatusIcon status="Paused" />
+    <br />
+    <StatusIcon status="Unknown" />
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    <StatusIcon status="Ok" isDisabled />
+    <br />
+    <StatusIcon status="Warning" isDisabled />
+    <br />
+    <StatusIcon status="Error" isDisabled />
+    <br />
+    <StatusIcon status="Info" isDisabled />
+    <br />
+    <StatusIcon status="Loading" isDisabled />
+    <br />
+    <StatusIcon status="Paused" isDisabled />
+    <br />
+    <StatusIcon status="Unknown" isDisabled />
+  </Story>
+</Canvas>
+
+### With label
+
+<Canvas>
+  <Story name="With label">
+    <StatusIcon status="Ok" label="Ready" />
+    <StatusIcon status="Warning" label="Warning" />
+    <StatusIcon status="Error" label="Error" />
+    <StatusIcon status="Info" label="Info" />
+    <StatusIcon status="Loading" label="Loading" />
+    <StatusIcon status="Paused" label="Paused" />
+    <StatusIcon status="Unknown" label="Unknown" />
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={StatusIcon} />
+
+<GithubLink path="src/components/StatusIcon/StatusIcon.tsx" />
