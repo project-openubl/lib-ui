@@ -21,7 +21,7 @@ jobs:
       - name: Build Storybook
         run: yarn storybook:export
       - name: Generate Surge URL
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         id: surge-url
         with:
           github-token: ${{ steps.token.outputs.GH_TOKEN }}
