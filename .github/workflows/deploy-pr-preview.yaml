@@ -32,7 +32,7 @@ jobs:
       - name: Install Surge
         run: npm install -g surge
       - name: Deploy Storybook to Surge
-        run: surge ./storybook-static/ "${{steps.surge-url.outputs.result}}" --token 62bd7a07b9bf812ff8d3ea91ccd2dc2f
+        run: surge ./storybook-static/ "${{steps.surge-url.outputs.result}}" --token 2ebe51d0e57c5c38de2549af0a061b66
       - name: Post URL as PR comment
         uses: mshick/add-pr-comment@v1
         with:
