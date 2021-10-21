@@ -6,10 +6,10 @@ jobs:
     name: Deploy to Surge
     runs-on: ubuntu-latest
     steps:
-      - name: Set up token
-        id: token
-        # This is a base64-encoded OAuth token for the "konveyor-preview-bot" GitHub account, which has no secure access.
-        run: echo "::set-output name=GH_TOKEN::`echo 'ODk3MzkyNzJlMDQwZjQ3YThhODJjYjYwZmFhM2RlOWQ3ZTk2YWM3OQo=' | base64 -d`"
+      # - name: Set up token
+      #   id: token
+      #   # This is a base64-encoded OAuth token for the "konveyor-preview-bot" GitHub account, which has no secure access.
+      #   run: echo "::set-output name=GH_TOKEN::`echo 'ODk3MzkyNzJlMDQwZjQ3YThhODJjYjYwZmFhM2RlOWQ3ZTk2YWM3OQo=' | base64 -d`"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Node.js
