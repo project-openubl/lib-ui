@@ -1,16 +1,7 @@
 import { useCallback, useReducer } from 'react';
 import { ActionType, createAction, getType } from 'typesafe-actions';
 import { IExtraColumnData, SortByDirection } from '@patternfly/react-table';
-
-export interface Page {
-  page: number;
-  perPage: number;
-}
-
-export interface SortBy {
-  index: number;
-  direction: 'asc' | 'desc';
-}
+import { Page, SortBy } from '../../common/types';
 
 // Actions
 
