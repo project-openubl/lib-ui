@@ -1,3 +1,6 @@
+export * from './components/SimplePlaceholder';
+export * from './components/SimpleSelect';
+export * from './components/SimpleTableWithToolbar';
 export * from './components/StatusIcon';
 
 export * from './hooks/useDelete';
