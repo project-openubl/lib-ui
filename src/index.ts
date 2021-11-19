@@ -1,3 +1,4 @@
+export * from './components/ConditionalRender';
 export * from './components/SimplePlaceholder';
 export * from './components/SimpleSelect';
 export * from './components/SimpleTableWithToolbar';
