@@ -7,10 +7,9 @@ describe('useModal', () => {
 
     // Open modal
     const { open } = result.current;
-    act(() => open('edit'));
+    act(() => open());
     expect(result.current.isOpen).toEqual(true);
     expect(result.current.data).toBeUndefined();
-    expect(result.current.actionKey).toEqual('edit');
   });
 
   it('onOpen: with data', () => {
@@ -20,11 +19,10 @@ describe('useModal', () => {
 
     // Open modal
     const { open } = result.current;
-    act(() => open('edit', ENTITY));
+    act(() => open(ENTITY));
 
     expect(result.current.isOpen).toEqual(true);
     expect(result.current.data).toEqual(ENTITY);
-    expect(result.current.actionKey).toEqual('edit');
   });
 
   it('Close modal with data', () => {
@@ -34,17 +32,15 @@ describe('useModal', () => {
     const { open, close } = result.current;
 
     // Open modal
-    act(() => open('edit', ENTITY));
+    act(() => open(ENTITY));
 
     expect(result.current.isOpen).toEqual(true);
     expect(result.current.data).toEqual(ENTITY);
-    expect(result.current.actionKey).toEqual('edit');
 
     // Close modal
     act(() => close());
 
     expect(result.current.isOpen).toEqual(false);
     expect(result.current.data).toBeUndefined();
-    expect(result.current.actionKey).toBeUndefined();
   });
 });
