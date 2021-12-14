@@ -1,18 +1,25 @@
 import { useCallback, useReducer } from 'react';
 import { ActionType, createAction, getType } from 'typesafe-actions';
 
-const openModal = createAction('useModal/action/openModalWithData')<any>();
+interface IOpenAction {
+  data: any;
+  actionKey: string;
+}
+
+const openModal = createAction('useModal/action/openModalWithData')<IOpenAction>();
 const closeModal = createAction('useModal/action/startClose')();
 
 // State
 type State = Readonly<{
   data: any;
   isOpen: boolean;
+  actionKey?: string;
 }>;
 
 const defaultState: State = {
   data: undefined,
   isOpen: false,
+  actionKey: undefined,
 };
 
 // Reducer
@@ -24,14 +31,16 @@ const reducer = (state: State, action: Action): State => {
     case getType(openModal):
       return {
         ...state,
-        data: action.payload,
+        data: action.payload.data,
         isOpen: true,
+        actionKey: action.payload.actionKey,
       };
     case getType(closeModal):
       return {
         ...state,
         data: undefined,
         isOpen: false,
+        actionKey: undefined,
       };
     default:
       return state;
@@ -43,7 +52,8 @@ const reducer = (state: State, action: Action): State => {
 interface HookState<T> {
   data?: T;
   isOpen: boolean;
-  open: (data?: T) => void;
+  actionKey?: string;
+  open: (actionKey: string, data?: T) => void;
   close: () => void;
 }
 
@@ -52,8 +62,8 @@ export const useModal = <T>(): HookState<T> => {
     ...defaultState,
   });
 
-  const openHandler = useCallback((entity?: T) => {
-    dispatch(openModal(entity));
+  const openHandler = useCallback((actionKey: string, entity?: T) => {
+    dispatch(openModal({ actionKey, data: entity }));
   }, []);
 
   const closeHandler = useCallback(() => {
@@ -63,6 +73,7 @@ export const useModal = <T>(): HookState<T> => {
   return {
     data: state.data,
     isOpen: state.isOpen,
+    actionKey: state.actionKey,
     open: openHandler,
     close: closeHandler,
   };
