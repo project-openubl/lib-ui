@@ -9,3 +9,5 @@ export * from './hooks/useModal';
 export * from './hooks/useTable';
 export * from './hooks/useTableControls';
 export * from './hooks/useToolbar';
+
+export * from './context/ConfirmationContext';
