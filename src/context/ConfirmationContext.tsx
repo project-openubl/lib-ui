@@ -75,7 +75,7 @@ export const defaultState: State = {
 
   hideCancelBtn: false,
 
-  onConfirm: () => {},
+  onConfirm: () => undefined,
 };
 
 const reducer = (state: State, action: Action): State => {
