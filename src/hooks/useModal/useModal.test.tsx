@@ -32,7 +32,7 @@ describe('useModal', () => {
   it('Close modal with data', () => {
     const ENTITY = 'hello';
 
-    const { result } = renderHook(() => useModal<"edit">());
+    const { result } = renderHook(() => useModal<'edit'>());
     const { open, close } = result.current;
 
     // Open modal
