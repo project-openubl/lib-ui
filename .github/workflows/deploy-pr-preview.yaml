@@ -11,7 +11,7 @@ jobs:
         # This is a base64-encoded OAuth token for the "project-openubl-preview-bot" GitHub account, which has no secure access.
         run: echo "::set-output name=GH_TOKEN::`echo 'Z2hwX1dySmRZd1dTdkFVeHlFUDR2bUl4TUhBaHZaeURnNjQxMUNUTAo=' | base64 -d`"
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
