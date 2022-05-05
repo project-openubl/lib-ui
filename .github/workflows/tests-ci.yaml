@@ -16,17 +16,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
       - name: Install dependencies
         run: yarn install
       - name: Run tests
         run: yarn ci
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
           path_to_write_report: ./coverage/codecov_report.txt
