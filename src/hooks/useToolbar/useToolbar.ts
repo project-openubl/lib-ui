@@ -9,36 +9,36 @@ const getToolbarChipKey = (value: string | ToolbarChip) => {
 
 type FilterType = string | ToolbarChip;
 
-interface HookState<T> {
-  filters: Map<string, T[]>;
+interface HookState<K, T> {
+  filters: Map<K, T[]>;
   isPresent: boolean;
-  addFilter: (key: string, value: T) => void;
-  setFilter: (key: string, value: T[]) => void;
-  removeFilter: (key: string, value: FilterType | FilterType[]) => void;
+  addFilter: (key: K, value: T) => void;
+  setFilter: (key: K, value: T[]) => void;
+  removeFilter: (key: K, value: FilterType | FilterType[]) => void;
   clearAllFilters: () => void;
 }
 
-export const useToolbar = <T extends FilterType>(
-  initialValue: Map<string, T[]> | (() => Map<string, T[]>) = new Map()
-): HookState<T> => {
-  const [filters, setFilters] = useState<Map<string, T[]>>(initialValue);
+export const useToolbar = <K, T extends FilterType>(
+  initialValue: Map<K, T[]> | (() => Map<K, T[]>) = new Map()
+): HookState<K, T> => {
+  const [filters, setFilters] = useState<Map<K, T[]>>(initialValue);
 
   const isPresent =
     Array.from(filters.values()).reduce((previous, current) => [...previous, ...current], [])
       .length > 0;
 
-  const addFilter = (key: string, value: T) => {
+  const addFilter = (key: K, value: T) => {
     setFilters((current) => {
       const currentChips = current.get(key) || [];
       return new Map(current).set(key, [...currentChips, value]);
     });
   };
 
-  const setFilter = (key: string, value: T[]) => {
+  const setFilter = (key: K, value: T[]) => {
     setFilters((current) => new Map(current).set(key, value));
   };
 
-  const removeFilter = (key: string, value: FilterType | FilterType[]) => {
+  const removeFilter = (key: K, value: FilterType | FilterType[]) => {
     setFilters((current) => {
       let elementsToBeRemoved: FilterType[];
       if (Array.isArray(value)) {

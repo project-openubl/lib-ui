@@ -4,19 +4,23 @@ import { useToolbar } from './useToolbar';
 
 describe('useToolbar', () => {
   it('initialValue', () => {
-    const initialValue = new Map([['key1', ['value1', 'value2']]]);
-    const { result } = renderHook(() => useToolbar<string>(initialValue));
+    type KeyType = 'key1' | 'key2';
+
+    const initialValue = new Map<KeyType, string[]>([['key1', ['value1', 'value2']]]);
+    const { result } = renderHook(() => useToolbar<KeyType, string>(initialValue));
 
     expect(result.current.isPresent).toBe(true);
     expect(result.current.filters.get('key1')).toEqual(['value1', 'value2']);
   });
 
   it('clearAllFilters', () => {
-    const initialValue = new Map([
+    type KeyType = 'key1' | 'key2';
+
+    const initialValue = new Map<KeyType, string[]>([
       ['key1', ['value1', 'value2']],
       ['key2', ['value3', 'value4']],
     ]);
-    const { result } = renderHook(() => useToolbar<string>(initialValue));
+    const { result } = renderHook(() => useToolbar<KeyType, string>(initialValue));
 
     const { clearAllFilters } = result.current;
     act(() => clearAllFilters());
@@ -27,7 +31,9 @@ describe('useToolbar', () => {
   });
 
   it("addFilter: 'string'", () => {
-    const { result } = renderHook(() => useToolbar<string>());
+    type KeyType = 'key1' | 'key2';
+
+    const { result } = renderHook(() => useToolbar<KeyType, string>());
 
     const { addFilter } = result.current;
     expect(result.current.isPresent).toBe(false);
@@ -39,7 +45,9 @@ describe('useToolbar', () => {
   });
 
   it("addFilter: 'ToolbarChip'", () => {
-    const { result } = renderHook(() => useToolbar<ToolbarChip>());
+    type KeyType = 'key1' | 'key2';
+
+    const { result } = renderHook(() => useToolbar<KeyType, ToolbarChip>());
 
     const { addFilter } = result.current;
     expect(result.current.isPresent).toBe(false);
@@ -52,7 +60,9 @@ describe('useToolbar', () => {
   });
 
   it("setFilter: 'string'", () => {
-    const { result } = renderHook(() => useToolbar<string>());
+    type KeyType = 'key1' | 'key2';
+
+    const { result } = renderHook(() => useToolbar<KeyType, string>());
 
     const { setFilter } = result.current;
     expect(result.current.isPresent).toBe(false);
@@ -64,7 +74,9 @@ describe('useToolbar', () => {
   });
 
   it("setFilter: 'ToolbarChip'", () => {
-    const { result } = renderHook(() => useToolbar<ToolbarChip>());
+    type KeyType = 'key1' | 'key2';
+
+    const { result } = renderHook(() => useToolbar<KeyType, ToolbarChip>());
 
     const { setFilter } = result.current;
     expect(result.current.isPresent).toBe(false);
@@ -78,11 +90,13 @@ describe('useToolbar', () => {
   });
 
   it('removeFilter: single value', () => {
-    const initialValue = new Map([
+    type KeyType = 'key1' | 'key2';
+
+    const initialValue = new Map<KeyType, string[]>([
       ['key1', ['value1', 'value11']],
       ['key2', ['value2', 'value22']],
     ]);
-    const { result } = renderHook(() => useToolbar<string>(initialValue));
+    const { result } = renderHook(() => useToolbar<KeyType, string>(initialValue));
 
     const { removeFilter } = result.current;
     act(() => removeFilter('key1', 'value11'));
@@ -92,7 +106,9 @@ describe('useToolbar', () => {
   });
 
   it('removeFilter: single value', () => {
-    const initialValue = new Map([
+    type KeyType = 'key1' | 'key2';
+
+    const initialValue = new Map<KeyType, ToolbarChip[]>([
       [
         'key1',
         [
@@ -108,7 +124,7 @@ describe('useToolbar', () => {
         ],
       ],
     ]);
-    const { result } = renderHook(() => useToolbar<ToolbarChip>(initialValue));
+    const { result } = renderHook(() => useToolbar<KeyType, ToolbarChip>(initialValue));
 
     const { removeFilter } = result.current;
     act(() => removeFilter('key1', { key: 'value11', node: 'VALUE11' }));
@@ -117,11 +133,13 @@ describe('useToolbar', () => {
   });
 
   it('removeFilter: array', () => {
-    const initialValue = new Map([
+    type KeyType = 'key1' | 'key2';
+
+    const initialValue = new Map<KeyType, string[]>([
       ['key1', ['value1', 'value11', 'value111']],
       ['key2', ['value2', 'value22', 'value222']],
     ]);
-    const { result } = renderHook(() => useToolbar<string>(initialValue));
+    const { result } = renderHook(() => useToolbar<KeyType, string>(initialValue));
 
     const { removeFilter } = result.current;
     act(() => removeFilter('key1', ['value1', 'value111']));
