@@ -11,3 +11,4 @@ export * from './hooks/useTableControls';
 export * from './hooks/useToolbar';
 
 export * from './context/ConfirmationContext';
+export * from './context/NotificationContext';
