@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Alert, AlertActionCloseButton, AlertGroup } from '@patternfly/react-core';
 
-// Notifications
+// Notifications Component
 
 export type notificationType = 'success' | 'info' | 'warning' | 'danger' | 'default';
 
