@@ -28,18 +28,18 @@
     "storybook:export": "rimraf storybook-static && build-storybook --docs"
   },
   "peerDependencies": {
-    "@patternfly/react-core": "^4.115.1",
-    "@patternfly/react-tokens": "^4.11.2",
-    "axios": "^0.21.1",
+    "@patternfly/react-core": "^4.221.3",
+    "@patternfly/react-tokens": "^4.73.3",
+    "axios": "^0.21.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
-    "@patternfly/react-core": "^4.157.3",
-    "@patternfly/react-table": "^4.26.6",
-    "@patternfly/react-tokens": "^4.11.2",
+    "@patternfly/react-core": "^4.221.3",
+    "@patternfly/react-table": "^4.90.3",
+    "@patternfly/react-tokens": "^4.73.3",
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
@@ -56,7 +56,7 @@
     "@types/rollup-plugin-postcss": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "axios-mock-adapter": "^1.20.0",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
